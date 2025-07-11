@@ -5,8 +5,8 @@
 # import google.generativeai as genai
 
 # # --- Constants ---
-# JINA_API_KEY = "jina_baed60ee21474a95a290a9444bcbe3dc7449oaVkAZ5oE0WqcI2mp4lL0Itu"
-# GEMINI_API_KEY = "AIzaSyAL2dFskGajHSf0N3LbYsClqs_9LvAc3tQ"
+# JINA_API_KEY = ""
+# GEMINI_API_KEY = ""
 # JINA_URL = "https://api.jina.ai/v1/embeddings"
 # MODEL_NAME = "jina-embeddings-v4"
 # TOP_K = 5

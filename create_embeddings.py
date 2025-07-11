@@ -69,7 +69,7 @@ logger = logging.getLogger(__name__)
 url = 'https://api.jina.ai/v1/embeddings'
 headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer jina_b5d8ea61235c48ad9e5af70719254fce5XsUnWspjaU21021cx5XvH6Zqbll' 
+    'Authorization': 'Bearer ' 
 }
 
 # Load previous database if exists

@@ -1,0 +1,24 @@
+Matematik ifodalar tahlil qilinib, OCR xatolari tuzatildi va izchil formatda taqdim etildi. Matnda diagrammalar mavjud emas.
+
+10.09.2024 Mavzu: Misollar ishlash
+
+1)
+y = -4x^2 + 3x - 1
+-4x^2 + 3x - 1 = -2
+-4x^2 + 3x - 1 + 2 = 0
+-4x^2 + 3x - 1 = 0
+D = 3^2 - 4 * (-4) * 1 = 9 + 16 = 25
+x_1,2 = (-3 +/- sqrt(25)) / (2 * -4) = (-3 +/- 5) / -8
+x_1 = (-3 - 5) / -8 = -8 / -8 = 1
+x_2 = (-3 + 5) / -8 = 2 / -8 = -1/4
+
+2)
+y = -4x^2 + 3x - 1
+y = -8
+-4x^2 + 3x - 1 = -8
+-4x^2 + 3x - 1 + 8 = 0
+-4x^2 + 3x + 7 = 0
+D = 3^2 - 4 * (-4) * 7 = 9 + 112 = 121
+x_1,2 = (-3 +/- sqrt(121)) / (2 * -4) = (-3 +/- 11) / -8
+x_1 = (-3 - 11) / -8 = -14 / -8 = 7/4
+x_2 = (-3 + 11) / -8 = 8 / -8 = -1

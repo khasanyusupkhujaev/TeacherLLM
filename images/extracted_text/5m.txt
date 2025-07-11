@@ -1,0 +1,52 @@
+Matematik ifodalarni tuzatish va tushuntirish:
+
+**Vazifa (Topshiriq):**
+Berilgan:
+*   `P_ABC` (ABC uchburchakning perimetri) = 18 sm
+*   `ΔABC` = muntazam uchburchak (teng tomonli uchburchak)
+
+Topish kerak:
+*   `r` (ichki chizilgan aylana radiusi) = ?
+*   `R` (tashqi chizilgan aylana radiusi) = ?
+
+**Yechish (Yechim):**
+
+*   **Yarim perimetr (p):**
+    `p = P / 2 = 18 / 2 = 9` sm
+
+*   **Uchburchakning tomon uzunligi (a):**
+    `ΔABC` muntazam uchburchak bo'lgani sababli, uning barcha tomonlari tengdir.
+    `a = P / 3 = 18 / 3 = 6` sm
+
+*   **Uchburchakning yuzasi (S) (Geron formulasi yordamida):**
+    Muntazam uchburchak uchun Geron formulasi `S = sqrt(p * (p - a)^3)` shaklida qo'llaniladi.
+    `S = sqrt(9 * (9 - 6)^3)`
+    `S = sqrt(9 * 3^3)`
+    `S = sqrt(9 * 27)`
+    `S = sqrt(243)`
+    `S = sqrt(81 * 3)`
+    `S = 9 * sqrt(3)` sm^2
+
+*   **Ichki chizilgan aylana radiusi (r):**
+    Uchburchak yuzasi formulasi `S = p * r` dan `r = S / p`
+    `r = (9 * sqrt(3)) / 9`
+    `r = sqrt(3)` sm
+
+*   **Tashqi chizilgan aylana radiusi (R):**
+    Muntazam uchburchakda tashqi radius (R), ichki radius (r) va tomonning yarmi (a/2) o'rtasidagi bog'liqlik Pifagor teoremasidan kelib chiqadi: `R^2 = (a/2)^2 + r^2`.
+    `R^2 = (6 / 2)^2 + (sqrt(3))^2`
+    `R^2 = 3^2 + 3`
+    `R^2 = 9 + 3`
+    `R^2 = 12`
+    `R = sqrt(12)`
+    `R = sqrt(4 * 3)`
+    `R = 2 * sqrt(3)` sm
+
+**Chizma (Diagramma) tushuntirish:**
+Chizmada katta aylana (tashqi chizilgan aylana) ichiga `ABC` muntazam uchburchak chizilgan. Uchburchak ichida esa kichikroq aylana (ichki chizilgan aylana) tasvirlangan. `a` harfi muntazam uchburchakning tomon uzunligini, `R` harfi tashqi chizilgan aylana radiusini (tashqi radius), `r` harfi esa ichki chizilgan aylana radiusini (ichki radius) bildiradi. Ikkala aylana markazi ham uchburchakning og'irlik markazi, ichki va tashqi aylana markazlari bilan ustma-ust tushadi. `m` va `b` nuqtalari mos ravishda tomon o'rtasi va uchburchak uchini ko'rsatishi mumkin.
+
+**Yakuniy javob:**
+Javob: `R = 2 * sqrt(3)` sm, `r = sqrt(3)` sm
+
+**Sana:**
+04.02.2025

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework Assistant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .hidden { display: none; }
+        .button-group button { margin: 5px; padding: 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        .button-group button:hover { background-color: #45a049; }
+        #formatted-text, #feedback, #homework-content, #class-content { 
+            margin-top: 20px; 
+            padding: 15px; 
+            background-color: white; 
+            border-radius: 5px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+        }
+        .input-group { margin: 10px 0; }
+        label { font-weight: bold; margin-right: 10px; }
+        select, input[type="text"], input[type="file"], input[type="number"] { padding: 5px; margin-right: 10px; }
+        h1, h2 { color: #333; }
+        p { line-height: 1.6; margin-bottom: 10px; }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <h1>Homework Assistant</h1>
+    <div class="button-group">
+        <button onclick="window.location.href='/homework-check'">Homework Check</button>
+        <button onclick="window.location.href='/homework-create'">Homework Creation</button>
+        <button onclick="window.location.href='/content-create'">Content Creation</button>
+    </div>
+
+    <!-- Homework Check Section -->
+    <div id="homework-check" class="section {% if active_section != 'homework-check' %}hidden{% endif %}">
+        <h2>Upload Homework</h2>
+        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+            <div class="input-group">
+                <label for="topic">Topic:</label>
+                <input type="text" name="topic" id="topic" value="{{ topic|default('Algebraik ifodalar') }}" required>
+            </div>
+            <div class="input-group">
+                <label for="grade">Grade:</label>
+                <select name="grade" id="grade" required>
+                    {% for i in range(1, 13) %}
+                        <option value="{{ i }}" {% if i == grade|default(10)|int %}selected{% endif %}>{{ i }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="language">Language:</label>
+                <select name="language" id="language" required>
+                    <option value="uz" {% if language == 'uz' %}selected{% endif %}>Uzbek</option>
+                    <option value="ru" {% if language == 'ru' %}selected{% endif %}>Russian</option>
+                    <option value="en" {% if language == 'en' %}selected{% endif %}>English</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <input type="file" name="file" accept="image/*,.pdf" multiple required>
+                <input type="submit" value="Upload">
+            </div>
+        </form>
+        {% if formatted_text %}
+        <div id="formatted-text"><span style="white-space: pre-wrap;">{{ formatted_text | safe }}</span></div>
+        {% endif %}
+        {% if feedback %}
+        <div id="feedback">{{ feedback | safe }}</div>
+        {% endif %}
+    </div>
+
+    <!-- Homework Creation Section -->
+    <div id="homework-create" class="section {% if active_section != 'homework-create' %}hidden{% endif %}">
+        <h2>Create Homework</h2>
+        <form id="createForm" action="/create_homework" method="post">
+            <div class="input-group">
+                <label for="create_topic">Topic:</label>
+                <input type="text" name="create_topic" id="create_topic" value="{{ create_topic|default('Linear Equations') }}" required>
+            </div>
+            <div class="input-group">
+                <label for="create_grade">Grade:</label>
+                <select name="create_grade" id="create_grade" required>
+                    {% for i in range(1, 13) %}
+                        <option value="{{ i }}" {% if i == create_grade|default(8)|int %}selected{% endif %}>{{ i }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="create_language">Language:</label>
+                <select name="create_language" id="create_language" required>
+                    <option value="uz" {% if create_language == 'uz' %}selected{% endif %}>Uzbek</option>
+                    <option value="ru" {% if create_language == 'ru' %}selected{% endif %}>Russian</option>
+                    <option value="en" {% if create_language == 'en' %}selected{% endif %}>English</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="number_of_questions">Number of Questions:</label>
+                <input type="number" name="number_of_questions" id="number_of_questions" value="{{ number_of_questions|default(3) }}" min="1" max="10" required>
+            </div>
+            <div class="input-group">
+                <input type="submit" value="Create Homework">
+            </div>
+        </form>
+        {% if homework_content %}
+        <div id="homework-content"><span style="white-space: pre-wrap;">{{ homework_content | safe }}</span></div>
+        {% endif %}
+    </div>
+
+    <!-- Content Creation Section -->
+    <div id="content-create" class="section {% if active_section != 'content-create' %}hidden{% endif %}">
+        <h2>Create Class Content</h2>
+        <form id="contentForm" action="/create_content" method="post">
+            <div class="input-group">
+                <label for="content_topic">Topic:</label>
+                <input type="text" name="content_topic" id="content_topic" value="{{ content_topic|default('Elementary Functions') }}" required>
+            </div>
+            <div class="input-group">
+                <label for="content_grade">Grade:</label>
+                <select name="content_grade" id="content_grade" required>
+                    {% for i in range(1, 13) %}
+                        <option value="{{ i }}" {% if i == content_grade|default(10)|int %}selected{% endif %}>{{ i }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="content_language">Language:</label>
+                <select name="content_language" id="content_language" required>
+                    <option value="uz" {% if content_language == 'uz' %}selected{% endif %}>Uzbek</option>
+                    <option value="ru" {% if content_language == 'ru' %}selected{% endif %}>Russian</option>
+                    <option value="en" {% if content_language == 'en' %}selected{% endif %}>English</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <input type="submit" value="Create Content">
+            </div>
+        </form>
+        {% if class_content %}
+        <div id="class-content"><span style="white-space: pre-wrap;">{{ class_content | safe }}</span></div>
+        {% endif %}
+    </div>
+
+    <script>
+        // Optional: Retain client-side toggling if no refresh is preferred
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

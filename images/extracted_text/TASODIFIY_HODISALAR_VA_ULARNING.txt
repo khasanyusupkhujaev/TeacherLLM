@@ -1,0 +1,11 @@
+TASODIFIY HODISALAR VA ULARNING EHTIMOLILIGI HAQIDA TUSHUNCHA
+
+1 savol. Ikkita kub baravar tashlandi. Kublarning yuqori yoqlarida paydo bo‘lishi mumkin bo‘lgan barcha imkoniyatlarni — sonlar juftligini yozib chiqing.
+Javob: (1,1), (1,2), (1,3), (2,1), (2,2), (2,3)
+
+2 savol. Tanga 3 marta tashlandi. Bunda qanday imkoniyatlar bo‘lishi mumkin? Ularni yozib chiqing.
+Javob: Bitta imkoniyat: G-G-G yoki B-B-B
+
+3 savol. 2, 3, 4 raqamlaridan, ularni takrorlamasdan mumkin bo‘lgan barcha uch xonali sonlarni tuzing. Nechta holda juft raqamlar yonma-yon joylashgan?
+Javob: 234 243 324 342 423 432
+4 ta holatda juft raqamlar yonma-yon joylashgan: 243, 324, 423, 432
